@@ -28,7 +28,7 @@ public class GlobalExceptionsHandler {
 		log.error(body);
 		return new ResponseEntity<>(body, status);
 	}
-@ExceptionHandler({IllegalStateException.class, HttpMessageNotReadableException.class})
+@ExceptionHandler({IllegalStateException.class, IllegalArgumentException.class, HttpMessageNotReadableException.class})
 ResponseEntity<String> badRequest(Exception e) {
 	String message = e.getMessage();
 	return errorResponse(message, HttpStatus.BAD_REQUEST);
